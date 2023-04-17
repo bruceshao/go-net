@@ -10,13 +10,14 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 )
 
 func main() {
+	fmt.Println("read start")
 	s := read()
 	fmt.Println(s)
-	c := make(chan struct{})
-	<-c
+	time.Sleep(time.Hour)
 }
 
 func read() string {
