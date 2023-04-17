@@ -26,12 +26,13 @@ func read1() string {
 	if err != nil {
 		panic(err)
 	}
-	defer fd.Close()
+	//defer fd.Close()
 	bz := make([]byte, 1024)
 	n, err := fd.Read(bz)
 	if err != nil {
 		panic(err)
 	}
+	fd.Close()
 	return string(bz[:n])
 }
 
