@@ -21,7 +21,7 @@ func main() {
 }
 
 func read() string {
-	fd, err := os.Open("/proc/sys/net/core/somaxconn")
+	fd, err := os.Open("/root/my.txt")
 	if err != nil {
 		panic(err)
 	}
