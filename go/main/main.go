@@ -14,6 +14,7 @@ import (
 )
 
 func main() {
+	fmt.Println("go net start")
 	listen, err := net.Listen("tcp", "127.0.0.1:9090")
 	if err != nil {
 		fmt.Println("listen failed, err:", err)
