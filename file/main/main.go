@@ -13,6 +13,13 @@ import (
 )
 
 func main() {
+	s := read()
+	fmt.Println(s)
+	c := make(chan struct{})
+	<-c
+}
+
+func read() string {
 	fd, err := os.Open("/proc/sys/net/core/somaxconn")
 	if err != nil {
 		panic(err)
@@ -23,5 +30,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(string(bz[:n]))
+	return string(bz[:n])
 }
