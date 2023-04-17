@@ -9,18 +9,19 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"time"
 )
 
 func main() {
 	fmt.Println("read start")
-	s := read()
+	s := read2()
 	fmt.Println(s)
-	time.Sleep(time.Hour)
+	time.Sleep(10 * time.Minute)
 }
 
-func read() string {
+func read1() string {
 	fd, err := os.Open("/root/my.txt")
 	if err != nil {
 		panic(err)
@@ -32,4 +33,20 @@ func read() string {
 		panic(err)
 	}
 	return string(bz[:n])
+}
+
+func read2() string {
+	bz, err := os.ReadFile("/root/my.txt")
+	if err != nil {
+		panic(err)
+	}
+	return string(bz)
+}
+
+func read3() string {
+	bz, err := ioutil.ReadFile("/root/my.txt")
+	if err != nil {
+		panic(err)
+	}
+	return string(bz)
 }
